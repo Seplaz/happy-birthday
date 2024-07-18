@@ -1,5 +1,5 @@
 .page {
-  width: 100svw;
+  width: 390px;
   height: 100dvh;
   font-family: 'Inter';
 }
@@ -50,7 +50,7 @@
   background-image: url(../images/second_background.png);
   background-size: cover;
   color: #720A0F;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
 }
 

@@ -7,11 +7,6 @@ let phrases = [
   { text: 'Всё, пока!', image: 'https://em-content.zobj.net/source/apple/391/waving-hand_1f44b.png' }
 ];
 
-function getRandomElement(arr) {
-  let randIndex = Math.floor(Math.random() * arr.length);
-  return arr[randIndex];
-}
-
 let phrase = document.querySelector('.phrase');
 let image = document.querySelector('.image');
 
