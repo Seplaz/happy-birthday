@@ -25,7 +25,7 @@
   color: #E6D1A1;
   font-size: 48px;
   font-weight: 700;
-  background-image: url(/images/first_background.png);
+  background-image: url(./images/first_background.png);
   background-size: cover;
 }
 
@@ -47,7 +47,7 @@
   flex-direction: column;
   gap: 30px;
   background-color: #E6D1A1;
-  background-image: url(/images/second_background.png);
+  background-image: url(./images/second_background.png);
   background-size: cover;
   color: #720A0F;
   font-size: 24px;
