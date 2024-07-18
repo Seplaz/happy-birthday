@@ -66,9 +66,9 @@
   align-items: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen {
   * {
-    -webkit-transition: all 0.5s ease-in-out !important;
-    transition: all 0.5s ease-in-out !important;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
   }
 }
