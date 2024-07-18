@@ -65,10 +65,3 @@
   gap: 16px;
   align-items: center;
 }
-
-@media screen {
-  * {
-    -webkit-transition: opacity 0.5s ease-in-out;
-    transition: opacity 0.5s ease-in-out;
-  }
-}
