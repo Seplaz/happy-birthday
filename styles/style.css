@@ -28,20 +28,33 @@
   background-size: cover;
 }
 
-.advice_container {
-  display: flex;
-  gap: 16px;
-}
-
 .advice {
   padding-top: 6px;
   font-size: 32px;
 }
 
 .image {
-  align-self: center;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
+  margin-inline-start: 8px;
+  animation-name: handshake;
+  animation-delay: 12s;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+@keyframes handshake {
+	from {
+		transform: rotate(0);
+	}
+
+	50% {
+		transform: rotate(24deg);
+	}
+
+	to {
+		transform: rotate(0);
+	}
 }
 
 .second {
@@ -68,14 +81,14 @@
 
 .boats {
   display: flex;
-  gap: 16px;
   justify-content: center;
+  gap: 16px;
 }
 
 .wave {
+  align-self: flex-end;
   width: 24px;
   height: 24px;
-  align-self: flex-end;
   animation: wave 8s infinite ease-in-out;
 }
 
@@ -90,9 +103,9 @@
 }
 
 .boat {
+  align-self: center;
   width: 48px;
   height: 48px;
-  align-self: center;
   animation: boat 1s infinite ease-in-out;
 }
 
@@ -113,9 +126,9 @@
 
 
 .heart {
+  align-self: center;
   width: 48px;
   height: 48px;
-  align-self: center;
   animation: heartbeat 0.8s infinite ease-in-out;
 }
 
