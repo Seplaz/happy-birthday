@@ -21,7 +21,7 @@
 .first {
   display: flex;
   flex-direction: column;
-  color: #F9E4C5;
+  color: #031D58;
   font-weight: 700;
   font-size: 48px;
   background-image: url(../images/first_background.png);
@@ -38,7 +38,7 @@
   height: 32px;
   margin-inline-start: 8px;
   animation-name: handshake;
-  animation-delay: 12s;
+  animation-delay: 13s;
   animation-iteration-count: infinite;
   animation-duration: 1s;
 }
@@ -61,7 +61,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  color: #F9E4C5;
+  color: #031D58;
   font-weight: 400;
   font-size: 18px;
   background-image: url(../images/second_background.png);
@@ -162,7 +162,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  color: #F9E4C5;
+  color: #031D58;
   font-weight: 400;
   font-size: 18px;
   background-image: url(../images/third_background.png);
