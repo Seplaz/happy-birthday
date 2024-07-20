@@ -10,27 +10,6 @@
   scroll-snap-type: y mandatory;
 }
 
-.all {
-  overflow: hidden;
-  height: 100dvh;
-  width: 100%;
-  position: fixed;
-}
-
-.rain_container {
-  position: relative;
-  top: -100px;
-  left: 0px;
-  height: calc(100dvh + 100px);
-  overflow: hidden;
-}
-
-.animate {
-  width: 20px;
-  overflow: visible;
-  position: relative;
-}
-
 .section {
   display: flex;
   justify-content: start;
@@ -49,18 +28,20 @@
   background-size: cover;
 }
 
+.advice_container {
+  display: flex;
+  gap: 16px;
+}
+
 .advice {
-  /* display: flex;
-  align-items: center;
-  gap: 16px; */
   padding-top: 6px;
   font-size: 32px;
 }
 
 .image {
-
-  width: 32px;
-  height: 32px;
+  align-self: center;
+  width: 30px;
+  height: 30px;
 }
 
 .second {
