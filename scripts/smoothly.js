@@ -3,13 +3,13 @@
     n = (t, e, n) =>
       new Promise((o) => {
         const s = () => {
-          t.removeEventListener('transitionend', s), o();
+          t.removeEventListener("transitionend", s), o();
         };
         t.style[e] = n;
-        t.addEventListener('transitionend', s);
+        t.addEventListener("transitionend", s);
       }),
-    o = (t) => n(t, 'opacity', 0),
-    s = (t) => n(t, 'opacity', 1),
+    o = (t) => n(t, "opacity", 0),
+    s = (t) => n(t, "opacity", 1),
     i = (t) =>
       ((t) =>
         new Promise((e) => setTimeout(e, t)))(1e3)
@@ -24,8 +24,9 @@
   t.smoothly = (t, n, r) => {
     ((t, n) => {
       e.has(t) || (t.style.transition = n);
-    })(t, 'opacity 0.5s ease-in-out'),
-      e.has(t) || e.set(t, { prop: n, contents: [], timer: null });
+    })(t, "all 0.5s ease-in-out"),
+      e.has(t) ||
+        e.set(t, { prop: n, contents: [], timer: null });
     const c = e.get(t);
     c.contents.push(r),
       c.timer ||
@@ -39,17 +40,4 @@
             })(t);
         }, 0));
   };
-
-  // Fix for Safari on iOS
-  document.addEventListener('DOMContentLoaded', () => {
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @media screen and (max-width: 768px) {
-        * {
-          -webkit-transition: opacity 0.5s ease-in-out !important;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-  });
 })(window);
