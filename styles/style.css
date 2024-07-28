@@ -21,7 +21,7 @@
 .first {
   display: flex;
   flex-direction: column;
-  color: #031D58;
+  color: #333333;
   font-weight: 700;
   font-size: 48px;
   background-image: url(../images/first_background.png);
@@ -29,7 +29,7 @@
 }
 
 .advice {
-  padding-top: 6px;
+  padding-top: 30px;
   font-size: 32px;
 }
 
@@ -61,7 +61,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  color: #031D58;
+  color: #333333;
   font-weight: 400;
   font-size: 18px;
   background-image: url(../images/second_background.png);
@@ -79,6 +79,12 @@
   gap: 16px;
 }
 
+.image_second {
+  width: 32px;
+  height: 32px;
+  margin-inline-start: 8px;
+}
+
 .boats {
   display: flex;
   justify-content: center;
@@ -94,11 +100,17 @@
 
 @keyframes wave {
 	from {
-		transform: translateX(-600px);
+    opacity: 0;
+		transform: translateX(-150px) scale(0.5);
 	}
 
+  50% {
+    opacity: 1;
+  }
+
 	to {
-		transform: translateX(600px);
+    opacity: 0;
+		transform: translateX(195px) scale(0.8);
 	}
 }
 
@@ -123,56 +135,13 @@
 	}
 }
 
-
-
-.heart {
-  align-self: center;
-  width: 48px;
-  height: 48px;
-  animation: heartbeat 0.8s infinite ease-in-out;
-}
-
-@keyframes heartbeat {
-  from {
-    transform: scale(0.9);
-  }
-
-  20% {
-    transform: scale(1);
-  }
-
-  40% {
-    transform: scale(0.9);
-  }
-
-  60% {
-    transform: scale(1);
-  }
-
-  80% {
-    transform: scale(0.9);
-  }
-
-  to {
-    transform: scale(0.9);
-  }
-}
-
 .third {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  color: #031D58;
+  color: #333333;
   font-weight: 400;
   font-size: 18px;
   background-image: url(../images/third_background.png);
   background-size: cover;
-}
-
-.third_section-title {
-  padding-top: 90px;
-}
-
-.emoji_second {
-  align-self: center;
 }
