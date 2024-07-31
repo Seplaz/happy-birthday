@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="stylesheet" href="./styles/globals.css">
+    <link rel="stylesheet" href="./styles/style.css">
+  </head>
+  <body class="page">
+    <div class="container">
+      <section class="section first">
+        <p>C днём<br>Рождения!</p>
+        <div class="advice">
+          <span class="phrase">Вредина</span>
+          <img class="image" src="https://em-content.zobj.net/source/apple/391/partying-face_1f973.png">
+        </div>
+        <div class="firework_container">
+          <div class="firework" id="firework_one">
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+          </div>
+          <div class="firework" id="firework_two">
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+          </div>
+          <div class="firework" id="firework_three">
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+            <div class="explosion"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section second">
+        <div class="second_section-title">
+          <p>Дорогая</p>
+          <div class="emoji">
+            <p>Баба Капа</p>
+            <img class="image_second" src="https://em-content.zobj.net/source/apple/391/party-popper_1f389.png">
+          </div>
+        </div>
+        <p>Поздравляю тебя с днём варенья и желаю тебе всегда оставаться такой же умной и весёлой, женственной и обаятельной, заботливой и нежной.</p>
+        <p>Пусть каждый твой день будет наполнен любовью, радостью, счастьем и незабываемыми впечатлениями.</p>
+        <div class="boats">
+          <img class="boat" src="https://em-content.zobj.net/source/apple/391/speedboat_1f6a4.png">
+        </div>
+      </section>
+      <section class="section third">
+        <div class="second_section-title">
+          <p>Кристина</p>
+        </div>
+        <p>Я очень рад, что встретил тебя</p>
+      </section>
+    </div>
+    <script src="https://code.s3.yandex.net/web-code/smoothly.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/confetti.js"></script>
+    <script>
+      //start
+      const start = () => {
+        setTimeout(function() {
+          confetti.start();
+        }, 1000);
+      };
+
+      //stop
+      const stop = () => {
+        setTimeout(function() {
+          confetti.stop();
+        }, 15000);
+      };
+
+      start();
+      stop();
+    </script>
+  </body>
+</html>
