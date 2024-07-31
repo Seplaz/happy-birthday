@@ -6,6 +6,7 @@
 
 .container {
   height: 100dvh;
+  overflow-x: hidden;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
 }
@@ -56,6 +57,31 @@
 	}
 }
 
+.blue_baloon {
+  position: relative;
+  top: -55%;
+  left: 50%;
+  transform: rotateZ(12deg);
+  scale: 0.6;
+}
+
+.red_baloon {
+  position: relative;
+  top: -50%;
+  left: -40%;
+  transform: rotateZ(-12deg);
+  scale: 1.2;
+}
+
+.purple_baloon {
+  position: relative;
+  top: -45%;
+  left: 40%;
+  transform: rotateZ(8deg);
+  scale: 2;
+  z-index: 1;
+}
+
 .second {
   flex-direction: column;
   gap: 30px;
@@ -69,6 +95,11 @@
 .second_section-title {
   font-weight: 700;
   font-size: 48px;
+  z-index: 2;
+}
+
+.second p {
+  z-index: 2;
 }
 
 .emoji {
@@ -93,21 +124,30 @@
   align-self: center;
   width: 48px;
   height: 48px;
-  animation: boat 1s infinite ease-in-out;
+  animation: boat 30s infinite ease-in-out;
+  scale: 0.9;
 }
 
 @keyframes boat {
 	from {
-		transform: rotate(0) translateY(0);
+		transform: translateX(250px);
 	}
 
-	50% {
-		transform: rotate(10deg) translateY(-5px);
-	}
+  25% {
+    transform: translateX(-250px) translateY(50px) scale(1.2);
+  }
 
-	to {
-		transform: rotate(0) translateY(0);
-	}
+  50% {
+    transform: translateX(-250px) translateY(50px) rotateY(180deg) scale(1.2);
+  }
+
+  75% {
+    transform: translateX(250px) translateY(100px) rotateY(180deg) scale(1.4);
+  }
+
+  to {
+    transform: translateX(250px);
+  }
 }
 
 .third {
