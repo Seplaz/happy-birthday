@@ -30,6 +30,7 @@
         </div>
         <p>Поздравляю тебя с днём варенья и желаю тебе всегда оставаться такой же умной и весёлой, женственной и обаятельной, заботливой и нежной.</p>
         <p>Пусть каждый твой день будет наполнен любовью, радостью, счастьем и незабываемыми впечатлениями.</p>
+        <img class="plane" src="images/plane.png">
         <div class="boats">
           <img class="boat" src="https://em-content.zobj.net/source/apple/391/speedboat_1f6a4.png">
         </div>
@@ -46,20 +47,16 @@
     <script src="scripts/main.js"></script>
     <script src="scripts/confetti.js"></script>
     <script>
-      //start
       const start = () => {
         setTimeout(function() {
           confetti.start();
         }, 1000);
       };
-
-      //stop
       const stop = () => {
         setTimeout(function() {
           confetti.stop();
         }, 15000);
       };
-
       start();
       stop();
     </script>
