@@ -2,6 +2,7 @@
   width: 390px;
   height: 100dvh;
   font-family: 'Inter';
+  transition: all ease-in-out;
 }
 
 .container {
@@ -28,19 +29,37 @@
   background-size: cover;
 }
 
+.first p {
+  animation: textAppear 0.4s ease-in-out;
+}
+
+@keyframes textAppear {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .advice {
   padding-top: 30px;
   font-size: 32px;
+  animation: textAppear 0.6s ease-in-out;
+  z-index: 2;
 }
 
 .image {
   width: 32px;
   height: 32px;
   margin-inline-start: 8px;
+  transform-origin: 70% 100%;
   animation-name: handshake;
   animation-delay: 15s;
   animation-iteration-count: infinite;
-  animation-duration: 0.8s;
+  animation-duration: 2s;
 }
 
 @keyframes handshake {
@@ -48,9 +67,21 @@
 		transform: rotate(0);
 	}
 
-	50% {
-		transform: rotate(24deg);
+  20% {
+    transform: rotate(25deg);
+  }
+
+	40% {
+		transform: rotate(0);
 	}
+
+  60% {
+    transform: rotate(25deg);
+  }
+
+  80% {
+    transform: rotate(0);
+  }
 
 	to {
 		transform: rotate(0);
@@ -60,26 +91,74 @@
 .blue_baloon {
   position: relative;
   top: -55%;
-  left: 50%;
+  left: 55%;
   transform: rotateZ(12deg);
+  animation: blue_baloon_fadeIn 2s ease-in-out;
   scale: 0.6;
+}
+
+@keyframes blue_baloon_fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(200px) translateY(50px);
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .red_baloon {
   position: relative;
-  top: -50%;
+  top: -63%;
   left: -40%;
   transform: rotateZ(-12deg);
+  animation: red_baloon_fadeIn 3s ease-in-out;
   scale: 1.2;
+  z-index: 1;
+}
+
+@keyframes red_baloon_fadeIn {
+  from {
+    transform: translateX(-200px) translateY(50px);
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .purple_baloon {
   position: relative;
-  top: -45%;
+  top: -48%;
   left: 40%;
-  transform: rotateZ(8deg);
-  scale: 2;
   z-index: 1;
+  transform: rotateZ(8deg);
+  animation: purple_baloon_fadeIn 4s ease-in-out;
+  scale: 2;
+}
+
+@keyframes purple_baloon_fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(200px) translateY(50px);
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .second {
@@ -93,9 +172,9 @@
 }
 
 .second_section-title {
+  z-index: 2;
   font-weight: 700;
   font-size: 48px;
-  z-index: 2;
 }
 
 .second p {
