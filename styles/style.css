@@ -219,7 +219,7 @@
 
 .boat {
   position: relative;
-  top: -90%;
+  top: -100%;
   align-self: center;
   width: 48px;
   height: 48px;
@@ -241,7 +241,7 @@
   }
 
   75% {
-    transform: translateX(250px) translateY(100px) rotateY(180deg) scale(1.4);
+    transform: translateX(250px) translateY(80px) rotateY(180deg) scale(1.4);
   }
 
   to {
