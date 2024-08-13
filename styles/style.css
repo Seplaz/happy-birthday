@@ -180,14 +180,14 @@
 
 .second p {
   z-index: 2;
-  animation: textFadeIn 2s forwards;
+  animation: text_move 2s forwards;
   animation-timeline: scroll();
 }
 
-@keyframes textFadeIn {
+@keyframes text_move {
   from {
+    transform: translateY(-60px);
     opacity: 0;
-    transform: translateY(-80px);
   }
 
   50% {
