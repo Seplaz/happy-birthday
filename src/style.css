@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --black-color: #191918;
+  --white-color: #FFFFFF;
+  --gray-color: #F6F5F4;
+  --pink-color: #FFCDF1;
+  --purple-color: #EADBFA;
+  --blue-color: #E6F1FA;
+  --teal-color: #BDE6E4;
+  --green-color: #D0F4D8;
+
+  --primary-text-color: #191918;
+  --secondary-text-color: #0000008A;
+  --button-hover-color: #31302E;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin: 0 auto;
+  padding: 24px;
+  color: var(--primary-text-color);
+  font-family: "Inter", sans-serif;
+  max-inline-size: 393px;
+  min-block-size: 100dvh;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  block-size: 100%;
+}
+
+.intro__title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.intro__text {
+  color: var(--secondary-text-color);
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+}
+
+.intro__button {
+  border: none;
+  border-radius: 16px;
+  padding: 12px 24px;
+  color: var(--gray-color);
+  font-weight: 400;
+  font-size: 14px;
+  background-color: var(--black-color);
+
+  &:hover {
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: none;
+  border-radius: 16px;
+  padding: 24px;
+  background-color: var(--gray-color);
+  text-align: start;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.card__title {
+  color: var(--primary-text-color);
+  font-size: 32px;
+}
+
+.card__text {
+  color: var(--secondary-text-color);
+  font-size: 16px;
+}
+
+.pink {
+  background-color: var(--pink-color);
+}
+
+.purple {
+  background-color: var(--purple-color);
+}
+
+.blue {
+  background-color: var(--blue-color);
+}
+
+.teal {
+  background-color: var(--teal-color);
+}
+
+.green {
+  background-color: var(--green-color);
+}
+
+.cards__catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
