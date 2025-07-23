@@ -73,6 +73,10 @@
   }
 }
 
+.cards__catalog {
+  inline-size: 100%;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -80,17 +84,28 @@
   border: none;
   border-radius: 16px;
   padding: 24px;
-  background-color: var(--gray-color);
   text-align: start;
+  background-color: var(--gray-color);
 
   &:hover {
     cursor: pointer;
   }
 }
 
+.card__title_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .card__title {
   color: var(--primary-text-color);
   font-size: 32px;
+}
+
+.card__image {
+  inline-size: 32px;
+  block-size: 32px;
 }
 
 .card__text {

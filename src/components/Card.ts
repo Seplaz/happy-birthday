@@ -1,8 +1,21 @@
-import { type ICard, Colors } from "../types";
 import { ensureElement } from "../utils/utils";
 import { Component } from "./base/component";
-import type { EventEmitter } from "./base/events";
+import { EventEmitter } from "./base/events";
 import { gsap } from 'gsap';
+
+interface ICard {
+  title: string;
+  image?: string;
+  text: string;
+};
+
+enum Colors {
+  'Любовь' = 'pink',
+  'Нежность' = 'purple',
+  'Лёгкость' = 'blue',
+  'Внимание' = 'teal',
+  'Забота' = 'green',
+};
 
 export class Card extends Component<ICard> {
   protected _button: HTMLButtonElement;
@@ -18,6 +31,7 @@ export class Card extends Component<ICard> {
     this._button = this.container as HTMLButtonElement;
     this._title = ensureElement<HTMLElement>('.card__title', this.container);
     this._text = ensureElement<HTMLElement>('.card__text', this.container);
+    this._image = ensureElement<HTMLImageElement>('.card__image', this.container);
 
     this._button.addEventListener('click', (event: Event) => {
       event.stopPropagation();
@@ -41,6 +55,10 @@ export class Card extends Component<ICard> {
   set text(value: string) {
     this.setText(this._text, value);
     this.setHidden(this._text);
+  };
+
+  set image(value: string) {
+    this.setImage(this._image, value, 'Иконка');
   };
 
   toggleTextVisibility(): void {

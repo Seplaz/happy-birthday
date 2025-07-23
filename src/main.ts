@@ -7,15 +7,15 @@ import { cloneTemplate, ensureElement } from './utils/utils';
 import { Card } from './components/Card';
 import { Page } from './components/Page';
 import { EventEmitter } from './components/base/events';
-import { data } from './data/data'
+import { data } from './data/data';
 
 gsap.registerPlugin(SplitText);
 const events = new EventEmitter;
 const page = new Page(document.body, events);
 
 page.title = 'Привет!';
-page.text = 'Нажми на кнопку ниже, чтобы продолжить.';
-page.buttonText = 'Продолжить';
+page.text = 'Сегодня особенный день! Чтобы продолжить, нажми на кнопку ниже.';
+page.buttonText = 'Да да, тыкай сюда!';
 
 const cardTemplate = ensureElement<HTMLTemplateElement>('#card');
 
@@ -25,7 +25,8 @@ events.on('button:click', () => {
     
     const renderedCards = card.render({
       title: item.title,
-      text: item.text
+      text: item.text,
+      image: item.image
     });
 
     gsap.from(renderedCards, {
