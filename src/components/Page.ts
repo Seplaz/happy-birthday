@@ -14,6 +14,7 @@ export class Page extends Component<IPage> {
     protected _text: HTMLElement;
     protected _button: HTMLButtonElement;
     protected _catalog: HTMLElement;
+    // protected _catalogTitle: HTMLElement;
     protected _wrapper: HTMLElement;
 
     constructor(container: HTMLElement, protected events: EventEmitter) {
@@ -23,15 +24,27 @@ export class Page extends Component<IPage> {
         this._title = ensureElement<HTMLElement>('.intro__title', this.container);
         this._text = ensureElement<HTMLElement>('.intro__text', this.container);
         this._button = ensureElement<HTMLButtonElement>('.intro__button', this.container);
-        this._catalog = ensureElement<HTMLElement>('.cards__catalog');
-        this._wrapper = ensureElement<HTMLElement>('#app');
+        this._catalog = ensureElement<HTMLElement>('.cards__catalog', this.container);
+        // this._catalogTitle = ensureElement<HTMLElement>('.cards__catalog_title', this.container);
+        this._wrapper = ensureElement<HTMLElement>('#app', this.container);
+
+        this.setHidden(this._catalog);
 
         this._button.addEventListener('click', (event: Event) => {
             event.stopPropagation();
             event.preventDefault();
+
             this.events.emit('button:click');
             this.setDisabled(this._button, true);
             this.setHidden(this._intro);
+            this.setVisible(this._catalog);
+            gsap.from(this._catalog, {
+                opacity: 0,
+                y: 50,
+                duration: 0.6,
+                stagger: 0.05,
+                ease: 'power1.out'
+            });
         });
     };
 
@@ -66,7 +79,7 @@ export class Page extends Component<IPage> {
         });
     };
 
-    set buttonText(value: string) {
+    set button(value: string) {
         this.setText(this._button, value);
 
         gsap.from(this._button, {

@@ -5,51 +5,58 @@ import { gsap } from 'gsap';
 
 interface ICard {
   title: string;
-  image?: string;
+  image: string;
   text: string;
-};
-
-enum Colors {
-  'Любовь' = 'pink',
-  'Нежность' = 'purple',
-  'Лёгкость' = 'blue',
-  'Внимание' = 'teal',
-  'Забота' = 'green',
+  price: string;
 };
 
 export class Card extends Component<ICard> {
-  protected _button: HTMLButtonElement;
-  protected _id: number;
+  protected _cardButton: HTMLButtonElement;
   protected _title: HTMLElement;
-  protected _image?: HTMLImageElement;
+  protected _image: HTMLImageElement;
   protected _text: HTMLElement;
+  protected _cardPriceContainer: HTMLElement;
+  protected _price: HTMLElement;
+  protected _buyButton: HTMLButtonElement;
   private _isExpanded = false;
 
   constructor(container: HTMLElement, protected events: EventEmitter) {
     super(container);
 
-    this._button = this.container as HTMLButtonElement;
+    this._cardButton = this.container as HTMLButtonElement;
     this._title = ensureElement<HTMLElement>('.card__title', this.container);
-    this._text = ensureElement<HTMLElement>('.card__text', this.container);
     this._image = ensureElement<HTMLImageElement>('.card__image', this.container);
+    this._text = ensureElement<HTMLElement>('.card__text', this.container);
+    this._cardPriceContainer = ensureElement<HTMLElement>('.card__price_container', this.container);
+    this._price = ensureElement<HTMLElement>('.card__price', this.container);
+    this._buyButton = ensureElement<HTMLButtonElement>('.card__price_button', this.container);
 
-    this._button.addEventListener('click', (event: Event) => {
+    this.setHidden(this._cardPriceContainer);
+    this.setHidden(this._buyButton);
+
+    this._cardButton.addEventListener('click', (event: Event) => {
       event.stopPropagation();
       event.preventDefault();
       
       events.emit('card:click', {
-        id: this._id,
         card: this
       });
     });
+
+    this._buyButton.addEventListener('click', (event: Event) => {
+      event.stopPropagation();
+      event.preventDefault();
+
+      events.emit('button:buy');
+    })
   };
 
   set title(value: string) {
     this.setText(this._title, value);
+  };
 
-    if (value in Colors) {
-      this.container.classList.add(Colors[value as keyof typeof Colors]);
-    };
+  set image(value: string) {
+    this.setImage(this._image, value, 'Иконка');
   };
 
   set text(value: string) {
@@ -57,11 +64,12 @@ export class Card extends Component<ICard> {
     this.setHidden(this._text);
   };
 
-  set image(value: string) {
-    this.setImage(this._image, value, 'Иконка');
+  set price(value: string) {
+    this.setText(this._price, value);
+    this.setHidden(this._price);
   };
 
-  toggleTextVisibility(): void {
+  toggleExpand(): void {
     if (this._isExpanded) return;
 
     gsap.fromTo(this.container, {
@@ -76,14 +84,41 @@ export class Card extends Component<ICard> {
     });
 
     gsap.fromTo(this._text, {
-      opacity: 0
+      opacity: 0,
+      y: -20
     }, {
       opacity: 1,
+      y: 0,
       delay: 0.2,
       duration: 0.4,
       ease: 'power2.out'
     });
+
+    gsap.fromTo(this._price, {
+      opacity: 0,
+      y: -20,
+    }, {
+      opacity: 1,
+      y: 0,
+      delay: 0.4,
+      duration: 0.4,
+      ease: 'power3.out'
+    });
+
+    gsap.fromTo(this._buyButton, {
+      opacity: 0,
+      y: -20
+    }, {
+      opacity: 1,
+      y: 0,
+      delay: 0.6,
+      duration: 0.4,
+      ease: 'power3.out'
+    });
     
     this.setVisible(this._text);
+    this.setVisible(this._cardPriceContainer);
+    this.setVisible(this._price);
+    this.setVisible(this._buyButton);
   };
 };

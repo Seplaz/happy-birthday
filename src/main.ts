@@ -13,9 +13,9 @@ gsap.registerPlugin(SplitText);
 const events = new EventEmitter;
 const page = new Page(document.body, events);
 
-page.title = 'Привет!';
-page.text = 'Сегодня особенный день! Чтобы продолжить, нажми на кнопку ниже.';
-page.buttonText = 'Да да, тыкай сюда!';
+page.title = 'Добрый день, Кристина!';
+page.text = 'Чтобы посмотреть товары, нажмите кнопку ниже.';
+page.button = 'Посмотреть';
 
 const cardTemplate = ensureElement<HTMLTemplateElement>('#card');
 
@@ -26,7 +26,8 @@ events.on('button:click', () => {
     const renderedCards = card.render({
       title: item.title,
       text: item.text,
-      image: item.image
+      image: item.image,
+      price: item.price
     });
 
     gsap.from(renderedCards, {
@@ -45,5 +46,9 @@ events.on('button:click', () => {
 
 events.on('card:click', (data: { card: Card }) => {
   const card = data.card;
-  card.toggleTextVisibility();
-})
+  card.toggleExpand();
+});
+
+events.on('button:buy', () => {
+  console.log('Покупаю такой то предмет');
+});
