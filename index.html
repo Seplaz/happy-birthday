@@ -5,34 +5,57 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
-    <script type="module" crossorigin src="/happy-birthday/assets/index-Br0E2Vfj.js"></script>
-    <link rel="stylesheet" crossorigin href="/happy-birthday/assets/index-BI_cKC9D.css">
+    <script type="module" crossorigin src="/happy-birthday/assets/index-CO4tPdLU.js"></script>
+    <link rel="stylesheet" crossorigin href="/happy-birthday/assets/index-CO2C46xJ.css">
   </head>
   <body class="page">
-    <div id="app">
+    <div id="app" class="app">
+
       <div class="intro">
         <h1 class="intro__title"></h1>
         <p class="intro__text"></p>
-        <button class="intro__button"></button>
+        <button type="button" class="intro__button"></button>
       </div>
+
       <div class="cards__catalog">
-        <h2 class="cards__catalog_title">Товары</h2>
       </div>
+
+      <div class="modal" id="modal-container">
+        <div class="modal__container">
+          <div class="modal__content">
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <template id="card">
       <div class="card">
         <div class="card__title_container">
-          <h3 class="card__title"></h3>
-          <img class="card__image" src="" alt="">
+          <h2 class="card__title"></h2>
+          <img class="card__image" src="">
         </div>
         <p class="card__text"></p>
         <div class="card__price_container">
           <p class="card__price"></p>
-          <button class="card__price_button">Купить</button>
+          <button type="button" class="card__price_button">Купить</button>
         </div>
       </div>
     </template>
+
+    <template id="success">
+      <div class="success">
+        <div class="success__description">
+          <img class="success__description_image" src="/happy-birthday/success.svg" />
+          <div class="success__description_text_container">
+            <h2 class="success__description_title">Заказ успешно оформлен</h2>
+            <p class="success__description_text">Будем ждать Вас снова!</p>
+          </div>
+        </div>
+        <button type="button" class="success__finish_button">На главную</button>
+      </div>
+    </template>
+
 
   </body>
 </html>
