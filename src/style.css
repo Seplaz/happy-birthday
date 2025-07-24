@@ -23,23 +23,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  inline-size: 100%;
+  max-inline-size: 393px;
   block-size: 100dvb;
+  margin: 0 auto;
 }
 
 .app {
+  flex-grow: 1;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 24px;
-  margin: 0 auto;
   padding: 24px;
   color: var(--primary-text-color);
   font-family: "Inter", sans-serif;
-  max-inline-size: 393px;
-  min-block-size: 100dvb;
+  min-block-size: 100svb;
 }
 
 .locked {
@@ -105,6 +105,7 @@
   padding: 24px;
   text-align: start;
   background-color: var(--gray-color);
+  inline-size: 100%;
 
   &:hover {
     cursor: pointer;
