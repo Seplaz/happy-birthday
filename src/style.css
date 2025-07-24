@@ -7,7 +7,7 @@
 
   --primary-text-color: #191918;
   --secondary-text-color: #707070;
-  
+
   --button-hover-color: #31302E;
 
   --modal-background-color: #19191880;
@@ -24,7 +24,7 @@
   justify-content: center;
   align-items: center;
   max-inline-size: 393px;
-  block-size: 100dvb;
+  min-block-size: 100dvb;
   margin: 0 auto;
 }
 
@@ -39,6 +39,7 @@
   padding: 24px;
   color: var(--primary-text-color);
   font-family: "Inter", sans-serif;
+  max-inline-size: 393px;
   min-block-size: 100svb;
 }
 
@@ -230,6 +231,8 @@
 
 .modal_active {
   display: flex;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .modal__container {
