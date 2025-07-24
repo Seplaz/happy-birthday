@@ -55,8 +55,11 @@ events.on('card:open', (data: { card: Card }) => {
 });
 
 events.on('modal:open', () => {
-  console.log('Покупаю такой то предмет');
   modal.render({
     content: success.render()
-  })
+  });
+});
+
+events.on('modal:close', () => {
+  modal.close();
 });

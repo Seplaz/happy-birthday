@@ -26,7 +26,9 @@ export class Success extends Component<ISuccess> {
       event.stopPropagation();
       event.preventDefault();
       
-      events.emit('modal:close');
+      events.emit('modal:close', {
+        success: this
+      });
     });
   };
 };

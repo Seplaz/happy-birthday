@@ -204,6 +204,7 @@
 }
 
 .modal {
+  padding: 24px;
   position: absolute;
   display: none;
   inline-size: 100%;
@@ -212,18 +213,18 @@
   justify-content: center;
   align-items: center;
   background-color: var(--modal-background-color);
+}
 
-  &_active {
+  .modal_active {
     display: flex;
   }
 
-  &__container {
-    background-color: var(--modal-background-color);
+  .modal__container {
+    inline-size: 100%;
     box-sizing: border-box;
     position: relative;
   }
 
-  &__content {
+  .modal__content {
     flex-grow: 1;
   }
-}
