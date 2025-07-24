@@ -54,12 +54,20 @@ events.on('card:open', (data: { card: Card }) => {
   card.toggleExpand();
 });
 
-events.on('modal:open', () => {
+events.on('button:buy', () => {
   modal.render({
     content: success.render()
   });
 });
 
-events.on('modal:close', () => {
+events.on('button:close', () => {
   modal.close();
+});
+
+events.on('modal:open', () => {
+	page.locked = true;
+});
+
+events.on('modal:close', () => {
+	page.locked = false;
 });

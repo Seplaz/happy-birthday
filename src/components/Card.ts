@@ -47,7 +47,7 @@ export class Card extends Component<ICard> {
       event.stopPropagation();
       event.preventDefault();
 
-      events.emit('modal:open');
+      events.emit('button:buy');
     })
   };
 

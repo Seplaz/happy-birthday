@@ -26,7 +26,7 @@ export class Success extends Component<ISuccess> {
       event.stopPropagation();
       event.preventDefault();
       
-      events.emit('modal:close', {
+      events.emit('button:close', {
         success: this
       });
     });

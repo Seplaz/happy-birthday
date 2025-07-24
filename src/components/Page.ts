@@ -24,7 +24,7 @@ export class Page extends Component<IPage> {
         this._text = ensureElement<HTMLElement>('.intro__text', this.container);
         this._button = ensureElement<HTMLButtonElement>('.intro__button', this.container);
         this._catalog = ensureElement<HTMLElement>('.cards__catalog', this.container);
-        this._wrapper = ensureElement<HTMLElement>('#app', this.container);
+        this._wrapper = ensureElement<HTMLElement>('.app', this.container);
 
         this.setHidden(this._catalog);
 
@@ -92,5 +92,13 @@ export class Page extends Component<IPage> {
 
     set catalog(items: HTMLElement[]) {
         this._catalog.replaceChildren(...items);
+    };
+
+    set locked(value: boolean) {
+        if (value) {
+            this._wrapper.classList.add('locked');
+        } else {
+            this._wrapper.classList.remove('locked');
+        };
     };
 };
