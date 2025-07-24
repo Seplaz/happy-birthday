@@ -38,7 +38,7 @@ export class Card extends Component<ICard> {
       event.stopPropagation();
       event.preventDefault();
       
-      events.emit('card:click', {
+      events.emit('card:open', {
         card: this
       });
     });
@@ -47,7 +47,7 @@ export class Card extends Component<ICard> {
       event.stopPropagation();
       event.preventDefault();
 
-      events.emit('button:buy');
+      events.emit('modal:open');
     })
   };
 
@@ -56,7 +56,7 @@ export class Card extends Component<ICard> {
   };
 
   set image(value: string) {
-    this.setImage(this._image, value, 'Иконка');
+    this.setImage(this._image, value);
   };
 
   set text(value: string) {

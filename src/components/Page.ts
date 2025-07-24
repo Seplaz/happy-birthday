@@ -14,7 +14,6 @@ export class Page extends Component<IPage> {
     protected _text: HTMLElement;
     protected _button: HTMLButtonElement;
     protected _catalog: HTMLElement;
-    // protected _catalogTitle: HTMLElement;
     protected _wrapper: HTMLElement;
 
     constructor(container: HTMLElement, protected events: EventEmitter) {
@@ -25,7 +24,6 @@ export class Page extends Component<IPage> {
         this._text = ensureElement<HTMLElement>('.intro__text', this.container);
         this._button = ensureElement<HTMLButtonElement>('.intro__button', this.container);
         this._catalog = ensureElement<HTMLElement>('.cards__catalog', this.container);
-        // this._catalogTitle = ensureElement<HTMLElement>('.cards__catalog_title', this.container);
         this._wrapper = ensureElement<HTMLElement>('#app', this.container);
 
         this.setHidden(this._catalog);
@@ -38,27 +36,28 @@ export class Page extends Component<IPage> {
             this.setDisabled(this._button, true);
             this.setHidden(this._intro);
             this.setVisible(this._catalog);
-            gsap.from(this._catalog, {
-                opacity: 0,
-                y: 50,
-                duration: 0.6,
-                stagger: 0.05,
-                ease: 'power1.out'
-            });
+            
+            // gsap.from(this._catalog, {
+            //     opacity: 0,
+            //     y: 50,
+            //     duration: 0.6,
+            //     stagger: 0.05,
+            //     ease: 'power1.out'
+            // });
         });
     };
 
     set title(value: string) {
         this.setText(this._title, value);
 
-        const split = new SplitText(this._title, { type: 'words' });
-        const words = split.words;
+        const split = new SplitText(this._title, { type: 'lines' });
+        const words = split.lines;
 
         gsap.from(words, {
             opacity: 0,
             y: 50,
             duration: 0.6,
-            stagger: 0.05,
+            stagger: 0.15,
             ease: 'power1.out'
         });
     }
@@ -74,7 +73,7 @@ export class Page extends Component<IPage> {
             delay: 0.3,
             y: 20,
             duration: 0.8,
-            stagger: 0.05,
+            stagger: 0.10,
             ease: 'power2.out'
         });
     };

@@ -8,16 +8,21 @@ import { Card } from './components/Card';
 import { Page } from './components/Page';
 import { EventEmitter } from './components/base/events';
 import { data } from './data/data';
+import { Modal } from './components/Modal';
+import { Success } from './components/Success';
 
 gsap.registerPlugin(SplitText);
 const events = new EventEmitter;
 const page = new Page(document.body, events);
+const modal = new Modal(ensureElement<HTMLElement>('#modal-container'), events);
 
 page.title = 'Добрый день, Кристина!';
 page.text = 'Чтобы посмотреть товары, нажмите кнопку ниже.';
 page.button = 'Посмотреть';
 
 const cardTemplate = ensureElement<HTMLTemplateElement>('#card');
+const successTemplate = ensureElement<HTMLTemplateElement>('#success');
+const success = new Success(cloneTemplate(successTemplate), events);
 
 events.on('button:click', () => {
   const cardsArray = data.map((item, index) => {
@@ -44,11 +49,14 @@ events.on('button:click', () => {
   page.render({ catalog: cardsArray});
 });
 
-events.on('card:click', (data: { card: Card }) => {
+events.on('card:open', (data: { card: Card }) => {
   const card = data.card;
   card.toggleExpand();
 });
 
-events.on('button:buy', () => {
+events.on('modal:open', () => {
   console.log('Покупаю такой то предмет');
+  modal.render({
+    content: success.render()
+  })
 });
