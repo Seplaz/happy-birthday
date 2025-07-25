@@ -30,6 +30,7 @@
   background-size: cover;
   max-inline-size: 393px;
   min-block-size: 100dvb;
+  background-attachment: fixed;
 }
 
 .app {

@@ -36,14 +36,6 @@ export class Page extends Component<IPage> {
             this.setDisabled(this._button, true);
             this.setHidden(this._intro);
             this.setVisible(this._catalog);
-            
-            // gsap.from(this._catalog, {
-            //     opacity: 0,
-            //     y: 50,
-            //     duration: 0.6,
-            //     stagger: 0.05,
-            //     ease: 'power1.out'
-            // });
         });
     };
 

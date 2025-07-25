@@ -17,7 +17,7 @@ const page = new Page(document.body, events);
 const modal = new Modal(ensureElement<HTMLElement>('#modal-container'), events);
 
 page.title = 'С Днём Рождения, Кристина!';
-page.text = 'Чтобы посмотреть подарки на выбор, нажми кнопку ниже.';
+page.text = 'Чтобы посмотреть витрину подарков, нажми кнопку ниже.';
 page.button = 'Посмотреть';
 
 const cardTemplate = ensureElement<HTMLTemplateElement>('#card');
