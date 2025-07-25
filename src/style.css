@@ -10,7 +10,7 @@
 
   --button-hover-color: #31302E;
 
-  --modal-background-color: #19191880;
+  --modal-background-color: #FFFFFF;
 }
 
 * {
@@ -23,16 +23,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  background-image: url(/background.svg);
+  background-repeat: repeat-y;
+  background-position: center;
+  background-size: cover;
   max-inline-size: 393px;
   min-block-size: 100dvb;
-  margin: 0 auto;
 }
 
 .app {
-  flex-grow: 1;
   position: relative;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   justify-content: center;
   align-items: center;
   gap: 24px;
@@ -72,16 +76,13 @@
 }
 
 .intro__button {
-  border: none;
   border-radius: 16px;
   padding: 12px 24px;
-  color: var(--gray-color);
+  color: var(--primary-text-color);
   font-weight: 400;
   font-size: 16px;
-  background-color: var(--black-color);
 
   &:hover {
-    background-color: var(--button-hover-color);
     cursor: pointer;
   }
 }
@@ -105,7 +106,6 @@
   border-radius: 16px;
   padding: 24px;
   text-align: start;
-  background-color: var(--gray-color);
   inline-size: 100%;
 
   &:hover {
@@ -149,11 +149,10 @@
   border: none;
   border-radius: 16px;
   padding: 12px 24px;
-  color: var(--gray-color);
+  color: var(--primary-text-color);
   background-color: var(--black-color);
 
   &:hover {
-    background-color: var(--button-hover-color);
     cursor: pointer;
   }
 }
@@ -208,11 +207,10 @@
   border: none;
   border-radius: 16px;
   padding: 12px 24px;
-  color: var(--gray-color);
+  color: var(--primary-text-color);
   background-color: var(--black-color);
 
   &:hover {
-    background-color: var(--button-hover-color);
     cursor: pointer;
   }
 }
@@ -244,4 +242,13 @@
 .modal__content {
   flex-grow: 1;
   inline-size: 100%;
+}
+
+.glass {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), 
+              inset 0 4px 20px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(2px) saturate(180%);
 }

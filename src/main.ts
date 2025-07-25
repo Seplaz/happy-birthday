@@ -16,8 +16,8 @@ const events = new EventEmitter;
 const page = new Page(document.body, events);
 const modal = new Modal(ensureElement<HTMLElement>('#modal-container'), events);
 
-page.title = 'Добрый день, Кристина!';
-page.text = 'Чтобы посмотреть товары, нажмите кнопку ниже.';
+page.title = 'С Днём Рождения, Кристина!';
+page.text = 'Чтобы посмотреть подарки на выбор, нажми кнопку ниже.';
 page.button = 'Посмотреть';
 
 const cardTemplate = ensureElement<HTMLTemplateElement>('#card');
