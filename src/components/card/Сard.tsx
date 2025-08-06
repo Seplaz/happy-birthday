@@ -46,14 +46,10 @@ export const Card = (props: CardProps) => {
           const titleSplit = new SplitText(cardTitleRef.current, { type: 'words' });
           const titleWords = titleSplit.words;
 
-          gsap.fromTo(titleWords, {
+          gsap.from(titleWords, {
             opacity: 0,
-            x: -10
-          },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
+            y: 10,
+            duration: 0.8,
             delay: index + 0.6,
             ease: 'power3.out'
           });
@@ -149,7 +145,7 @@ export const Card = (props: CardProps) => {
     <div ref={cardRef} className={styles.card} onClick={handleCardClick}>
       <div className={styles.title_container}>
         <h2 ref={cardTitleRef} className={styles.title}>{title}</h2>
-        <img ref={cardImageRef} className={styles.image} src={image} />
+        <img ref={cardImageRef} className={styles.image} src={import.meta.env.BASE_URL + image} />
       </div>
       {isExpanded && (
         <div ref={cardContentRef} className={styles.content}>
