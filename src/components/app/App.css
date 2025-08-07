@@ -7,7 +7,7 @@
 }
 
 body {
-  background-image: url('https://i.ibb.co/bMvc7Zr6/Vibrant-Summer-Meadow-Watercolor.png');
+  background-image: url('/background.png');
   background-position: top;
   background-size: cover;
   background-attachment: fixed;
