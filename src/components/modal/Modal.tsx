@@ -81,7 +81,7 @@ export const Modal = ({ handleButtonClick }: ModalProps) => {
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
-        <img ref={imageRef} className={styles.image} src={import.meta.env.BASE_URL + '/success.png'} />
+        <img ref={imageRef} className={styles.image} src={import.meta.env.BASE_URL + '/success.webp'} />
         <div className={styles.description}>
           <h2 className={styles.title}>Поздравляю!</h2>
           <p className={styles.text}>Можешь выбрать ещё один.</p>
