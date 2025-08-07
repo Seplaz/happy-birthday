@@ -12,9 +12,10 @@ type CardProps = {
   text: string;
   price: string;
   index: number;
+  handleButtonClick: () => void;
 };
 
-export const Card = ({ title, image, text, price, index }: CardProps) => {
+export const Card = ({ title, image, text, price, index, handleButtonClick }: CardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
@@ -117,7 +118,7 @@ export const Card = ({ title, image, text, price, index }: CardProps) => {
             <p ref={priceRef} className={styles.price}>
               {price}
             </p>
-            <Button ref={buttonRef} title="Забрать" />
+            <Button ref={buttonRef} title="Забрать" onClick={handleButtonClick} />
           </div>
         </div>
       )}

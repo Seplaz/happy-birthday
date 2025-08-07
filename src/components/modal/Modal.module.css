@@ -1,21 +1,25 @@
 .modal {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 24px;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2),
-              inset 0 4px 20px rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(2px) saturate(180%);
   gap: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 0 24px 2px rgba(255, 255, 255, 0.4),
+    0 16px 32px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px) saturate(180%);
+  inline-size: 100%;
 }
 
 .image {
+  user-select: none;
   inline-size: 64px;
   block-size: 64px;
-  user-select: none;
 }
 
 .description {
@@ -36,4 +40,17 @@
   font-size: 14px;
   text-align: center;
   user-select: none;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background-color: rgba(0, 0, 0, 0.4);
+  inline-size: 100%;
+  block-size: 100%;
 }

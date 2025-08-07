@@ -3,18 +3,29 @@ import { useState } from "react";
 import { Card } from "../card/Сard";
 import { Data } from "../../data/Data";
 import { Intro } from "../intro/Intro";
+import { Modal } from "../modal/Modal";
 
 function App() {
   const [showCards, setShowCards] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const handleContinue = () => {
+  const handleShowCards = () => {
     setShowCards(true);
+  };
+
+  const handleModalShow = () => {
+    setShowModal(true);
+
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
   };
 
   return (
     <>
       {!showCards ? (
-        <Intro handleButtonClick={handleContinue} />
+        <Intro handleButtonClick={handleShowCards} />
       ) : (
         Data.map((item, index) => (
           <Card
@@ -24,9 +35,11 @@ function App() {
             price={item.price}
             image={item.image}
             index={index}
+            handleButtonClick={handleModalShow}
           />
         ))
       )}
+      {showModal && (<Modal handleButtonClick={handleModalClose} />)}
     </>
   );
 }
