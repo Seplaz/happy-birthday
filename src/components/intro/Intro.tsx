@@ -53,9 +53,7 @@ export const Intro = forwardRef<HTMLDivElement, IntroProps>(
           });
         }
       });
-    }, []);
 
-    useLayoutEffect(() => {
       if (buttonRef.current) {
         gsap.set(buttonRef.current, {
           opacity: 0,
@@ -74,10 +72,10 @@ export const Intro = forwardRef<HTMLDivElement, IntroProps>(
     return (
       <div ref={ref} className={styles.intro}>
         <h1 ref={titleRef} className={styles.title}>
-          С Днём Рождения, Кристина!
+          Привет, Кристина!
         </h1>
         <p ref={textRef} className={styles.text}>
-          Нажми на кнопку ниже,<br />чтобы посмотреть витрину подарков.
+          Нажми кнопку ниже, чтобы продолжить.
         </p>
         <Button
           ref={buttonRef}

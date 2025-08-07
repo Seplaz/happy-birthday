@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+body {
+  background: #FFFFFF;
+  background: radial-gradient(circle,rgba(255, 255, 255, 1) 50%, rgba(234, 219, 250, 0.5) 100%);
+}
+
 body::-webkit-scrollbar {
   display: none;
 }

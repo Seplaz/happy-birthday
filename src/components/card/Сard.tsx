@@ -2,7 +2,7 @@ import styles from "./Сard.module.css";
 import { Button } from "../button/Button";
 import { useRef, useLayoutEffect, useState } from "react";
 import gsap from "gsap";
-import { SplitText } from 'gsap/SplitText';
+import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(SplitText);
 
@@ -14,149 +14,110 @@ type CardProps = {
   index: number;
 };
 
-export const Card = (props: CardProps) => {
-  const { title, image, text, price, index } = props;
+export const Card = ({ title, image, text, price, index }: CardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const cardTitleRef = useRef<HTMLHeadingElement>(null);
-  const cardImageRef = useRef<HTMLImageElement>(null);
-  const cardContentRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const contentTextRef = useRef<HTMLParagraphElement>(null);
-  const contentPriceRef = useRef<HTMLParagraphElement>(null);
+  const priceRef = useRef<HTMLParagraphElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
 
   useLayoutEffect(() => {
-    if (cardRef.current) {
-      gsap.fromTo(cardRef.current, {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ delay: index * 0.2 });
+
+      tl.from(cardRef.current, {
         opacity: 0,
         y: 50,
         scale: 0.9,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        delay: index + 0.3,
-        duration: 0.6,
+        duration: 0.5,
         ease: "power3.out",
       });
 
-      document.fonts.ready.then(() => {
-        if (cardTitleRef.current) {
-          const titleSplit = new SplitText(cardTitleRef.current, { type: 'words' });
-          const titleWords = titleSplit.words;
+      tl.from(
+        imageRef.current,
+        {
+          opacity: 0,
+          scale: 0,
+          duration: 0.5,
+          ease: "power3.out",
+        },
+        "<+=0.2"
+      );
+    }, cardRef);
 
-          gsap.from(titleWords, {
-            opacity: 0,
-            y: 10,
-            duration: 0.8,
-            delay: index + 0.6,
-            ease: 'power3.out'
-          });
-        };
-      });
-
-      gsap.fromTo(cardImageRef.current, {
-        opacity: 0,
-        scale: 0
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        delay: index + 1,
-        ease: 'power3.out'
-      });
-    };
+    return () => ctx.revert();
   }, [index]);
 
-  const handleCardClick = () => {
-    setIsExpanded(true);
-  };
-
   useLayoutEffect(() => {
-    if (cardContentRef.current && isExpanded) {
-      gsap.fromTo(
-        cardContentRef.current,
-        {
-          height: 0,
-          opacity: 0,
-        },
-                 {
-           height: "auto",
-           opacity: 1,
-           duration: 0.2,
-           ease: "power1.out",
-          onComplete: () => {
-            if (cardRef.current) {
-              cardRef.current.style.cursor = "default";
-            }
-          },
-        }
-      );
+    if (!isExpanded) return;
 
-      gsap.fromTo(
-        contentTextRef.current,
-        {
-          opacity: 0,
-          y: -20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          delay: 0.2,
-          duration: 0.4,
-          ease: "power1.out",
-        }
-      );
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline();
 
-      gsap.fromTo(
-        contentPriceRef.current,
+      tl.fromTo(
+        contentRef.current,
+        { height: 0, opacity: 0 },
         {
-          opacity: 0,
-          y: -20,
-        },
-        {
+          height: "auto",
           opacity: 1,
-          y: 0,
-          delay: 0.4,
-          duration: 0.4,
+          duration: 0.3,
           ease: "power2.out",
         }
       );
 
-      gsap.fromTo(
-        buttonRef.current,
+      tl.from(
+        [contentTextRef.current, priceRef.current, buttonRef.current],
         {
           opacity: 0,
           y: -20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          delay: 0.6,
+          stagger: 0.1,
           duration: 0.4,
-          ease: "power3.out",
-        }
+          ease: "power2.out",
+        },
+        "-=0.1"
       );
-    }
+    }, cardRef);
+
+    return () => ctx.revert();
   }, [isExpanded]);
 
+  const handleCardClick = () => {
+    if (!isExpanded) {
+      setIsExpanded(true);
+    }
+  };
+
   return (
-    <div ref={cardRef} className={styles.card} onClick={handleCardClick}>
+    <div
+      ref={cardRef}
+      className={styles.card}
+      onClick={handleCardClick}
+      style={{ cursor: isExpanded ? "default" : "pointer" }}
+    >
       <div className={styles.title_container}>
-        <h2 ref={cardTitleRef} className={styles.title}>{title}</h2>
-        <img ref={cardImageRef} className={styles.image} src={import.meta.env.BASE_URL + image} />
+        <h2 ref={titleRef} className={styles.title}>
+          {title}
+        </h2>
+        <img
+          ref={imageRef}
+          className={styles.image}
+          src={import.meta.env.BASE_URL + image}
+        />
       </div>
+
       {isExpanded && (
-        <div ref={cardContentRef} className={styles.content}>
+        <div ref={contentRef} className={styles.content}>
           <p ref={contentTextRef} className={styles.text}>
             {text}
           </p>
           <div className={styles.price_container}>
-            <p ref={contentPriceRef} className={styles.price}>
+            <p ref={priceRef} className={styles.price}>
               {price}
             </p>
-            <Button ref={buttonRef} title={"Забрать"}></Button>
+            <Button ref={buttonRef} title="Забрать" />
           </div>
         </div>
       )}
