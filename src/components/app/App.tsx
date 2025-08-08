@@ -1,8 +1,8 @@
 import "./App.css";
 import { useState } from "react";
-import { Card } from "../card/Сard";
 import { Data } from "../../data/Data";
 import { Intro } from "../intro/Intro";
+import { Card } from "../card/Сard";
 import { Modal } from "../modal/Modal";
 
 function App() {

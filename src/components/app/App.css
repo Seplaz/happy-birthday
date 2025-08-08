@@ -31,7 +31,6 @@ body {
     background: url("/background.webp");
     background-repeat: no-repeat;
     background-position: center center;
-    -webkit-background-size: cover;
     background-size: cover;
   }
 }
