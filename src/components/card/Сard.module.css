@@ -46,13 +46,13 @@
   font-size: 16px;
 }
 
-.price_container {
+.description_container {
   display: flex;
   justify-content: space-between;
   align-items: end;
 }
 
-.price {
+.description {
   font-weight: 700;
   font-size: 18px;
 }

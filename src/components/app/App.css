@@ -1,4 +1,4 @@
-@import url('/src/fonts/fonts.css');
+@import url("/src/fonts/fonts.css");
 
 * {
   box-sizing: border-box;
@@ -18,7 +18,7 @@ body {
   body {
     background-image: none;
   }
-  
+
   body::before {
     content: "";
     position: fixed;
@@ -52,6 +52,7 @@ body::-webkit-scrollbar {
   padding: 24px;
   font-family: "Inter", sans-serif;
   text-align: center;
+  
 }
 
 .text {

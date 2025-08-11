@@ -84,7 +84,7 @@ export const Modal = ({ handleButtonClick }: ModalProps) => {
         <img ref={imageRef} className={styles.image} src={import.meta.env.BASE_URL + '/success.webp'} />
         <div className={styles.description}>
           <h2 className={styles.title}>Поздравляю!</h2>
-          <p className={styles.text}>Можешь выбрать ещё один.</p>
+          <p className={styles.text}>Подарок успешно выбран.</p>
         </div>
         <div ref={buttonRef}>
           <Button title={"Спасибо!"} onClick={handleButtonClick}></Button>

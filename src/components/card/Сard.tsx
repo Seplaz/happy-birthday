@@ -10,7 +10,7 @@ type CardProps = {
   title: string;
   image: string;
   text: string;
-  price?: string;
+  description?: string;
   button?: ReactNode;
   index: number;
   handleButtonClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -20,7 +20,7 @@ export const Card = ({
   title,
   image,
   text,
-  price,
+  description,
   button,
   index,
   handleButtonClick,
@@ -30,7 +30,7 @@ export const Card = ({
   const imageRef = useRef<HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const contentTextRef = useRef<HTMLParagraphElement>(null);
-  const priceRef = useRef<HTMLParagraphElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -79,7 +79,7 @@ export const Card = ({
       );
 
       tl.from(
-        [contentTextRef.current, priceRef.current, buttonRef.current],
+        [contentTextRef.current, descriptionRef.current, buttonRef.current],
         {
           opacity: 0,
           y: -20,
@@ -123,9 +123,9 @@ export const Card = ({
           <p ref={contentTextRef} className={styles.text}>
             {text}
           </p>
-          <div className={styles.price_container}>
-            <p ref={priceRef} className={styles.price}>
-              {price}
+          <div className={styles.description_container}>
+            <p ref={descriptionRef} className={styles.description}>
+              {description}
             </p>
 
             {button && (
