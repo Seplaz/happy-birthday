@@ -2,8 +2,8 @@ import styles from './button.module.css';
 import { forwardRef } from 'react';
 
 type ButtonProps = {
-  title: string;
-  onClick?: () => void;
+  title?: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {

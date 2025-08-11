@@ -1,6 +1,6 @@
 import styles from "./Сard.module.css";
 import { Button } from "../button/Button";
-import { useRef, useLayoutEffect, useState } from "react";
+import { useRef, useLayoutEffect, useState, type ReactNode } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 
@@ -8,14 +8,23 @@ gsap.registerPlugin(SplitText);
 
 type CardProps = {
   title: string;
-  image?: string;
+  image: string;
   text: string;
-  price: string;
+  price?: string;
+  button?: ReactNode;
   index: number;
-  handleButtonClick: () => void;
+  handleButtonClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export const Card = ({ title, image, text, price, index, handleButtonClick }: CardProps) => {
+export const Card = ({
+  title,
+  image,
+  text,
+  price,
+  button,
+  index,
+  handleButtonClick,
+}: CardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
@@ -118,7 +127,14 @@ export const Card = ({ title, image, text, price, index, handleButtonClick }: Ca
             <p ref={priceRef} className={styles.price}>
               {price}
             </p>
-            <Button ref={buttonRef} title="Забрать" onClick={handleButtonClick} />
+
+            {button && (
+              <Button
+                ref={buttonRef}
+                title={'Забрать'}
+                onClick={handleButtonClick}
+              />
+            )}
           </div>
         </div>
       )}

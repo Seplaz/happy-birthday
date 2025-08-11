@@ -3,17 +3,16 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  border: none;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 0 24px 2px rgba(255, 255, 255, 0.4),
-    0 16px 32px rgba(0, 0, 0, 0.12);
-  color: #191918;
-  text-align: start;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px) saturate(180%);
   inline-size: 100%;
+  padding: 24px;
+  text-align: start;
+  background-color: rgb(255 255 255 / 10%);
+  border: none;
+  border: 2px solid rgb(255 255 255 / 40%);
+  border-radius: 16px;
+  box-shadow: 0 0 24px 2px rgb(255 255 255 / 40%),
+    0 16px 32px rgb(0 0 0 / 12%);
+  backdrop-filter: blur(8px) saturate(180%);
 
   &:hover {
     cursor: pointer;
@@ -27,6 +26,7 @@
 }
 
 .title {
+  color: rgb(0 0 0 / 85%);
   font-size: 32px;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .text {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgb(0 0 0 / 50%);
   font-size: 16px;
 }
 

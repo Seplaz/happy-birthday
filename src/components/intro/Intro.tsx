@@ -84,5 +84,5 @@ export const Intro = forwardRef<HTMLDivElement, IntroProps>(
         ></Button>
       </div>
     );
-  }
+  },
 );
